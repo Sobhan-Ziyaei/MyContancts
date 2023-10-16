@@ -48,6 +48,10 @@ namespace MyContancts
             frmAddOrEdit.ShowDialog();
             //ShowDialog vs Show -> تفاوت اش این است که در شو معمولی کاربر می‌تواند دوباره مثلا دکمه‌های فرم را بزند ولی در اون یکی نمی‌تواند
             //----------------------------------------
+            if (frmAddOrEdit.DialogResult == DialogResult.OK)
+            {
+                BindGrid();
+            }
         }
     }
 }

@@ -18,9 +18,33 @@ namespace MyContancts.Services
             throw new NotImplementedException();
         }
 
-        bool IContactsRepository.insert(string name, string familyName, string mobile, string Email, int age, string address)
+        bool IContactsRepository.insert(string name, string familyName, string mobile, string email, int age, string address)
         {
-            throw new NotImplementedException();
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            try
+            {
+                string query = "Insert Into MyContacts (Name,Family,Mobile,Email,Age,Address) values (@name,@familyName,@mobile,@email,@age,@address)";
+                //SqlCommand -> تنها کلاسی هست که می‌تواند تغییراتی را در بانک ایجاد بکند
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@familyName", familyName);
+                command.Parameters.AddWithValue("@mobile", mobile);
+                command.Parameters.AddWithValue("@email", email);
+                command.Parameters.AddWithValue("@age", age);
+                command.Parameters.AddWithValue("@address", address);
+                connection.Open();
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         DataTable IContactsRepository.selectAll()

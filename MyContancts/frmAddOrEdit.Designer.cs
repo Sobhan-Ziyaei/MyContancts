@@ -179,6 +179,7 @@
             btnSubmit.TabIndex = 1;
             btnSubmit.Text = "ثبت";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // frmAddOrEdit
             // 
@@ -191,7 +192,8 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmAddOrEdit";
             RightToLeft = RightToLeft.Yes;
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
+            Load += frmAddOrEdit_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtAge).EndInit();
