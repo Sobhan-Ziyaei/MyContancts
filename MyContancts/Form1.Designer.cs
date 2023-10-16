@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             toolStrip1 = new ToolStrip();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
@@ -38,12 +39,16 @@
             Mobile = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
             Age = new DataGridViewTextBoxColumn();
+            btnNewContact = new ToolStripButton();
+            btnRefresh = new ToolStripButton();
+            toolStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgContacts).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
             // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnNewContact, btnRefresh });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(784, 25);
@@ -125,6 +130,25 @@
             Age.Name = "Age";
             Age.ReadOnly = true;
             // 
+            // btnNewContact
+            // 
+            btnNewContact.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnNewContact.Image = (Image)resources.GetObject("btnNewContact.Image");
+            btnNewContact.ImageTransparentColor = Color.Magenta;
+            btnNewContact.Name = "btnNewContact";
+            btnNewContact.Size = new Size(106, 22);
+            btnNewContact.Text = "افزودن شخص جدید";
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
+            btnRefresh.ImageTransparentColor = Color.Magenta;
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(64, 22);
+            btnRefresh.Text = "بروز رسانی";
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 14F);
@@ -139,6 +163,8 @@
             RightToLeft = RightToLeft.Yes;
             Text = "دفترچه تلفن";
             Load += Form1_Load;
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgContacts).EndInit();
             ResumeLayout(false);
@@ -157,5 +183,7 @@
         private DataGridViewTextBoxColumn Mobile;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Age;
+        private ToolStripButton btnNewContact;
+        private ToolStripButton btnRefresh;
     }
 }
