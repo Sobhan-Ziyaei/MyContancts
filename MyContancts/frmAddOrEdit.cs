@@ -81,7 +81,7 @@ namespace MyContancts
 
         private void frmAddOrEdit_Load(object sender, EventArgs e)
         {
-
+            this.Text = "افزودن شخص جدید";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
