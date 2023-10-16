@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             toolStrip1 = new ToolStrip();
+            btnNewContact = new ToolStripButton();
+            btnRefresh = new ToolStripButton();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             dgContacts = new DataGridView();
@@ -39,8 +41,6 @@
             Mobile = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
             Age = new DataGridViewTextBoxColumn();
-            btnNewContact = new ToolStripButton();
-            btnRefresh = new ToolStripButton();
             toolStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgContacts).BeginInit();
@@ -54,6 +54,26 @@
             toolStrip1.Size = new Size(784, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // btnNewContact
+            // 
+            btnNewContact.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnNewContact.Image = (Image)resources.GetObject("btnNewContact.Image");
+            btnNewContact.ImageTransparentColor = Color.Magenta;
+            btnNewContact.Name = "btnNewContact";
+            btnNewContact.Size = new Size(106, 22);
+            btnNewContact.Text = "افزودن شخص جدید";
+            btnNewContact.Click += btnNewContact_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
+            btnRefresh.ImageTransparentColor = Color.Magenta;
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(64, 22);
+            btnRefresh.Text = "بروز رسانی";
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // groupBox1
             // 
@@ -129,25 +149,6 @@
             Age.HeaderText = "سن";
             Age.Name = "Age";
             Age.ReadOnly = true;
-            // 
-            // btnNewContact
-            // 
-            btnNewContact.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnNewContact.Image = (Image)resources.GetObject("btnNewContact.Image");
-            btnNewContact.ImageTransparentColor = Color.Magenta;
-            btnNewContact.Name = "btnNewContact";
-            btnNewContact.Size = new Size(106, 22);
-            btnNewContact.Text = "افزودن شخص جدید";
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
-            btnRefresh.ImageTransparentColor = Color.Magenta;
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(64, 22);
-            btnRefresh.Text = "بروز رسانی";
-            btnRefresh.Click += btnRefresh_Click;
             // 
             // Form1
             // 

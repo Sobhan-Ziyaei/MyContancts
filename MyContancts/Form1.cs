@@ -39,5 +39,15 @@ namespace MyContancts
             //DataGridView -> این کامپوننت یک منبع داده دارد که می‌توان آنرا پر کرد مانند مثال زیر
             dgContacts.DataSource = repository.selectAll();
         }
+
+        private void btnNewContact_Click(object sender, EventArgs e)
+        {
+            //میخواهیم بگوییم زمانی که روی این کلیک زده شد بره و فرم جدید که برای ثبت اطلاعات فرد ساختیم را فراخوانی بکند
+            frmAddOrEdit frmAddOrEdit = new frmAddOrEdit();
+            //frmAddOrEdit.Show();
+            frmAddOrEdit.ShowDialog();
+            //ShowDialog vs Show -> تفاوت اش این است که در شو معمولی کاربر می‌تواند دوباره مثلا دکمه‌های فرم را بزند ولی در اون یکی نمی‌تواند
+            //----------------------------------------
+        }
     }
 }
