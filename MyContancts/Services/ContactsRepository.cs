@@ -15,7 +15,24 @@ namespace MyContancts.Services
 
         bool IContactsRepository.delete(int contactId)
         {
-            throw new NotImplementedException();
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                string query = "Delete From MyContacts where ContactId=@Id";
+                SqlCommand command = new SqlCommand(query,connection);
+                command.Parameters.AddWithValue("@Id", contactId);
+                connection.Open();
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally { 
+                
+                connection.Close();
+            }
         }
 
         bool IContactsRepository.insert(string name, string familyName, string mobile, string email, int age, string address)

@@ -34,6 +34,8 @@
             btnRefresh = new ToolStripButton();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
+            btnDelete = new Button();
+            btnEdit = new Button();
             dgContacts = new DataGridView();
             ContactId = new DataGridViewTextBoxColumn();
             MyName = new DataGridViewTextBoxColumn();
@@ -86,6 +88,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnDelete);
+            groupBox2.Controls.Add(btnEdit);
             groupBox2.Controls.Add(dgContacts);
             groupBox2.Location = new Point(12, 136);
             groupBox2.Name = "groupBox2";
@@ -93,6 +97,25 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "لیست";
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(598, 384);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 1;
+            btnDelete.Text = "حذف";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(679, 384);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(75, 23);
+            btnEdit.TabIndex = 1;
+            btnEdit.Text = "ویرایش";
+            btnEdit.UseVisualStyleBackColor = true;
             // 
             // dgContacts
             // 
@@ -105,7 +128,7 @@
             dgContacts.Name = "dgContacts";
             dgContacts.ReadOnly = true;
             dgContacts.RowTemplate.Height = 25;
-            dgContacts.Size = new Size(748, 386);
+            dgContacts.Size = new Size(748, 357);
             dgContacts.TabIndex = 0;
             // 
             // ContactId
@@ -186,5 +209,7 @@
         private DataGridViewTextBoxColumn Age;
         private ToolStripButton btnNewContact;
         private ToolStripButton btnRefresh;
+        private Button btnDelete;
+        private Button btnEdit;
     }
 }

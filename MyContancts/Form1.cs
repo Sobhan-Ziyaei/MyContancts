@@ -34,7 +34,8 @@ namespace MyContancts
             //می‌خواهیم قبل از بارگزاری داده‌ها سربرگ‌ها را تغییر دهیم مثلا فارسی شان بکنیم
             dgContacts.AutoGenerateColumns = false;
 
-
+            //دستور زیر می‌آییم یک ستون را نامرئی می‌کنیم
+            dgContacts.Columns[0].Visible = false;
 
             //DataGridView -> این کامپوننت یک منبع داده دارد که می‌توان آنرا پر کرد مانند مثال زیر
             dgContacts.DataSource = repository.selectAll();
@@ -52,6 +53,27 @@ namespace MyContancts
             {
                 BindGrid();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgContacts.CurrentRow != null)
+            {
+                var name = dgContacts.CurrentRow.Cells[1].Value.ToString();
+                var family = dgContacts.CurrentRow.Cells[2].Value.ToString();
+                string fullName = name + " " + family;
+                if (MessageBox.Show($"آیا از حذف {fullName} مطمئن هستید ؟", "توجه", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int contactId = int.Parse(dgContacts.CurrentRow.Cells[0].Value.ToString());
+                    repository.delete(contactId);
+                    BindGrid();
+                }
+            }
+            else
+            {
+                MessageBox.Show("لطفاً یک کاربر را انتخاب بکنید");
+            }
+
         }
     }
 }
