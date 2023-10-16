@@ -1,4 +1,4 @@
-namespace MyContancts
+﻿namespace MyContancts
 {
     internal static class Program
     {
