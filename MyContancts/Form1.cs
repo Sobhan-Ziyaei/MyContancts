@@ -18,6 +18,11 @@ namespace MyContancts
         {
             //Form_Load -> زمانی که این فرم ساخته می‌شود این متود فراخوانی می‌شود
 
+            //می‌خواهیم قبل از بارگزاری داده‌ها سربرگ‌ها را تغییر دهیم مثلا فارسی شان بکنیم
+            dgContacts.AutoGenerateColumns = false;
+
+
+
             //DataGridView -> این کامپوننت یک منبع داده دارد که می‌توان آنرا پر کرد مانند مثال زیر
             dgContacts.DataSource = repository.selectAll();
 

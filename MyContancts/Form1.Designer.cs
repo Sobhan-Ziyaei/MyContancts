@@ -32,6 +32,12 @@
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             dgContacts = new DataGridView();
+            ContactId = new DataGridViewTextBoxColumn();
+            MyName = new DataGridViewTextBoxColumn();
+            Family = new DataGridViewTextBoxColumn();
+            Mobile = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            Age = new DataGridViewTextBoxColumn();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgContacts).BeginInit();
             SuspendLayout();
@@ -65,12 +71,59 @@
             // 
             // dgContacts
             // 
+            dgContacts.AllowUserToAddRows = false;
+            dgContacts.AllowUserToDeleteRows = false;
+            dgContacts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgContacts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgContacts.Columns.AddRange(new DataGridViewColumn[] { ContactId, MyName, Family, Mobile, Email, Age });
             dgContacts.Location = new Point(6, 21);
             dgContacts.Name = "dgContacts";
+            dgContacts.ReadOnly = true;
             dgContacts.RowTemplate.Height = 25;
             dgContacts.Size = new Size(748, 386);
             dgContacts.TabIndex = 0;
+            // 
+            // ContactId
+            // 
+            ContactId.DataPropertyName = "ContactId";
+            ContactId.HeaderText = "کد شخص";
+            ContactId.Name = "ContactId";
+            ContactId.ReadOnly = true;
+            // 
+            // MyName
+            // 
+            MyName.DataPropertyName = "Name";
+            MyName.HeaderText = "نام";
+            MyName.Name = "MyName";
+            MyName.ReadOnly = true;
+            // 
+            // Family
+            // 
+            Family.DataPropertyName = "Family";
+            Family.HeaderText = "نام خانوادگی";
+            Family.Name = "Family";
+            Family.ReadOnly = true;
+            // 
+            // Mobile
+            // 
+            Mobile.DataPropertyName = "Mobile";
+            Mobile.HeaderText = "شماره موبایل";
+            Mobile.Name = "Mobile";
+            Mobile.ReadOnly = true;
+            // 
+            // Email
+            // 
+            Email.DataPropertyName = "Email";
+            Email.HeaderText = "ایمیل";
+            Email.Name = "Email";
+            Email.ReadOnly = true;
+            // 
+            // Age
+            // 
+            Age.DataPropertyName = "Age";
+            Age.HeaderText = "سن";
+            Age.Name = "Age";
+            Age.ReadOnly = true;
             // 
             // Form1
             // 
@@ -98,5 +151,11 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private DataGridView dgContacts;
+        private DataGridViewTextBoxColumn ContactId;
+        private DataGridViewTextBoxColumn MyName;
+        private DataGridViewTextBoxColumn Family;
+        private DataGridViewTextBoxColumn Mobile;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Age;
     }
 }
