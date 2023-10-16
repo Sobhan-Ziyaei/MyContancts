@@ -19,7 +19,7 @@ namespace MyContancts.Services
             try
             {
                 string query = "Delete From MyContacts where ContactId=@Id";
-                SqlCommand command = new SqlCommand(query,connection);
+                SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Id", contactId);
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -29,8 +29,9 @@ namespace MyContancts.Services
             {
                 return false;
             }
-            finally { 
-                
+            finally
+            {
+
                 connection.Close();
             }
         }
@@ -86,7 +87,12 @@ namespace MyContancts.Services
 
         DataTable IContactsRepository.selectRow(int contactId)
         {
-            throw new NotImplementedException();
+            string query = "Select * from MyContacts where ContactId=" + contactId;
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+            return data;
         }
 
         bool IContactsRepository.update(int contactId, string name, string familyName, string mobile, string Email, int age, string address)

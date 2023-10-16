@@ -75,5 +75,19 @@ namespace MyContancts
             }
 
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgContacts!= null)
+            {
+                int contactId = int.Parse(dgContacts.CurrentRow.Cells[0].Value.ToString());
+                frmAddOrEdit frmAddOrEdit = new frmAddOrEdit();
+                frmAddOrEdit.contactId = contactId;
+                if (frmAddOrEdit.ShowDialog() == DialogResult.OK)
+                {
+                    BindGrid();
+                }
+            }
+        }
     }
 }

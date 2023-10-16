@@ -15,6 +15,7 @@ namespace MyContancts
     public partial class frmAddOrEdit : Form
     {
         IContactsRepository repository;
+        public int contactId = 0;
         public frmAddOrEdit()
         {
             InitializeComponent();
@@ -81,7 +82,21 @@ namespace MyContancts
 
         private void frmAddOrEdit_Load(object sender, EventArgs e)
         {
-            this.Text = "افزودن شخص جدید";
+            if (contactId == 0)
+            {
+                this.Text = "افزودن شخص جدید";
+            }
+            else
+            {
+                this.Text = "ویرایش شخص";
+                DataTable dt = repository.selectRow(contactId);
+                txtName.Text = dt.Rows[0][1].ToString();
+                txtFamily.Text = dt.Rows[0][2].ToString();
+                txtMobile.Text = dt.Rows[0][3].ToString();
+                txtEmail.Text = dt.Rows[0][4].ToString();
+                txtAge.Text = dt.Rows[0][5].ToString();
+                txtAddress.Text = dt.Rows[0][6].ToString();
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

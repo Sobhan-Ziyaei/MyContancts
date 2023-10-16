@@ -116,6 +116,7 @@
             btnEdit.TabIndex = 1;
             btnEdit.Text = "ویرایش";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // dgContacts
             // 
