@@ -96,6 +96,7 @@ namespace MyContancts
                 txtEmail.Text = dt.Rows[0][4].ToString();
                 txtAge.Text = dt.Rows[0][5].ToString();
                 txtAddress.Text = dt.Rows[0][6].ToString();
+                btnSubmit.Text = "ویرایش";
             }
         }
 
@@ -103,7 +104,17 @@ namespace MyContancts
         {
             if (validateInputs())
             {
-                bool isSuccess = repository.insert(txtName.Text, txtFamily.Text, txtMobile.Text, txtEmail.Text, (int)txtAge.Value, txtAddress.Text);
+                bool isSuccess;
+
+                if (contactId == 0)
+                {
+                    isSuccess = repository.insert(txtName.Text, txtFamily.Text, txtMobile.Text, txtEmail.Text, (int)txtAge.Value, txtAddress.Text);
+                }
+                else
+                {
+                    isSuccess = repository.update(contactId, txtName.Text, txtFamily.Text, txtMobile.Text, txtEmail.Text, (int)txtAge.Value, txtAddress.Text);
+                }
+
 
                 if (isSuccess == true)
                 {
