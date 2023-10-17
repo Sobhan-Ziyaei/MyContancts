@@ -13,6 +13,22 @@ namespace MyContancts.Services
     {
         private string connectionString = "Data Source =.; Initial Catalog = Contact_DB; Integrated Security = true ";
 
+        public DataTable search(string parameter)
+        {
+            //in Sql -> example : where Name like N'%ن' -> get data where Name end with ن
+            //----------------- : where Name like N'ن%' -> get data where Name start with ن
+            //----------------- : where Name like N'%ن%' -> get data where Name include ن 
+            //----------------- : where Name like N'%ن%' or(and) Family like N'%ن%' 
+            string query = "Select * From MyContacts where Name like @parameter or Family like @parameter";
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter(query , connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@parameter", "%" + parameter + "%");
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+            return data;
+
+        }
+
         bool IContactsRepository.delete(int contactId)
         {
             SqlConnection connection = new SqlConnection(connectionString);

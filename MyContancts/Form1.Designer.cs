@@ -43,7 +43,10 @@
             Mobile = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
             Age = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            txtSearch = new TextBox();
             toolStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgContacts).BeginInit();
             SuspendLayout();
@@ -79,6 +82,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtSearch);
+            groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 28);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(760, 102);
@@ -174,6 +179,24 @@
             Age.Name = "Age";
             Age.ReadOnly = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(679, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 14);
+            label1.TabIndex = 0;
+            label1.Text = "جستجو : ";
+            label1.Click += label1_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(356, 44);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(317, 22);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 14F);
@@ -190,6 +213,8 @@
             Load += Form1_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgContacts).EndInit();
             ResumeLayout(false);
@@ -212,5 +237,7 @@
         private ToolStripButton btnRefresh;
         private Button btnDelete;
         private Button btnEdit;
+        private Label label1;
+        private TextBox txtSearch;
     }
 }

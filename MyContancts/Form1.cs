@@ -78,7 +78,7 @@ namespace MyContancts
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgContacts!= null)
+            if (dgContacts != null)
             {
                 int contactId = int.Parse(dgContacts.CurrentRow.Cells[0].Value.ToString());
                 frmAddOrEdit frmAddOrEdit = new frmAddOrEdit();
@@ -88,6 +88,16 @@ namespace MyContancts
                     BindGrid();
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgContacts.DataSource = repository.search(txtSearch.Text); 
         }
     }
 }

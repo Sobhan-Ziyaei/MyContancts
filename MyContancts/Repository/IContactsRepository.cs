@@ -18,5 +18,7 @@ namespace MyContancts.Repository
         DataTable selectAll();
 
         DataTable selectRow(int contactId);
+
+        DataTable search(string parameter);
     }
 }
